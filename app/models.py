@@ -47,19 +47,15 @@ class Pitch(db.Model):
     def save_pitch(self):
         db.session.add(self)
         db.session.commit()
-
     @classmethod
     def clear_pitches(cls):
-        Pitch.all_pitches.clear()
-
-
+        Pitch.search_pitches.clear()
     @classmethod
-    def get_pitchz(cls):
+    def get_pitchz(cls,pitch_id):
         pitchz=Pitch.query.filter_by(user_id=id).all()
         return pitchz
-
     @classmethod 
-    def get_pitche(cls)
+    def get_pitche(cls):
         pitche = Pitch.query.filter_by().all()
         return pitche 
     
@@ -84,7 +80,7 @@ class Comment(db.Model):
         return pitchz
 
     @classmethod 
-    def get_pitche(cls)
+    def get_pitche(cls):
         pitche = Pitch.query.filter_by().all()
         return pitche 
     
