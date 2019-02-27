@@ -20,7 +20,7 @@ def index():
     return render_template('index.html', title = title, pitches= all_pitches)
 
 
-@main.route('/pitc/new/', methods = ['GET','POST'])
+@main.route('/pitch/new/', methods = ['GET','POST'])
 @login_required
 def home(id):
     form = AddPitchForm()
@@ -37,8 +37,8 @@ def home(id):
 
     all_pitches = Pitch 
        
-    title = f'{movie.title} review'
-    return render_template('new_review.html',title = title, review_form=form, movie=movie)
+    title = 'Feel free to add a pitch'
+    return render_template('pitches.html',title = title, pitch_form=form, form=pitches)
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()

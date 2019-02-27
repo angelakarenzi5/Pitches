@@ -44,9 +44,25 @@ class Pitch(db.Model):
     comment = db.relationship('Comment',backref = 'comment',lazy="dynamic")
 
 
-    def __repr__(self):
-        return f'User {self.name}'
-    pass_secure  = db.Column(db.String(255))
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
+@classmethod
+def clear_pitches(cls):
+    Pitch.all_pitches.clear()
+
+
+@classmethod
+def get_pitchz(cls):
+    pitchz=Pitch.query.filter_by(user_id=id).all()
+    return pitchz
+
+@classmethod 
+def get_pitche(cls)
+    pitche = Pitch.query.filter_by().all()
+    return pitche 
+    
 
 
 class Comment(db.Model):
@@ -57,10 +73,21 @@ class Comment(db.Model):
     pitch_id = db.Column(db.Integer,db.ForeignKey("pitch.id"))
     content = db.Column(db.String(255))
 
+@classmethod
+def clear_pitches(cls):
+    Pitch.all_pitches.clear()
 
-    def __repr__(self):
-        return f'User {self.name}'
-    pass_secure  = db.Column(db.String(255))
+
+@classmethod
+def get_pitchz(cls):
+    pitchz=Pitch.query.filter_by(user_id=id).all()
+    return pitchz
+
+@classmethod 
+def get_pitche(cls)
+    pitche = Pitch.query.filter_by().all()
+    return pitche 
+    
 
 
 class PhotoProfile(db.Model):
