@@ -51,13 +51,13 @@ class Pitch(db.Model):
     def clear_pitches(cls):
         Pitch.search_pitches.clear()
     @classmethod
-    def get_pitchz(cls,pitch_id):
-        pitchz=Pitch.query.filter_by(user_id=id).all()
-        return pitchz
+    def get_pitche(cls,pitch_id):
+        pitche=Pitch.query.filter_by(user_id=id).all()
+        return pitche
     @classmethod 
-    def get_pitche(cls):
-        pitche = Pitch.query.filter_by().all()
-        return pitche 
+    def get_pitches(cls):
+        pitches = Pitch.query.filter_by().all()
+        return pitches
     
 
 
