@@ -40,6 +40,46 @@ def create_pitches():
     title = 'Feel free to add a pitch'
     return render_template('pitches.html',title = title, form=form)
 
+
+@main.route('/comment/new/', methods = ['GET','POST'])
+@login_required
+def create_comments():
+    form = CommentForm()
+
+
+    if form.validate_on_submit():
+        category = form.category.data
+        content = form.content.data 
+
+        new_comment =Comment(description=content, category = category, user=current_user)
+        new_comment.save_comment()
+
+        return redirect(url_for('main.index'))
+
+    all_pitches = Pitch.query.all()
+       
+    title = 'Feel free to add a pitch'
+    return render_template('pitches.html',title = title, form=form)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
