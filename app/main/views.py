@@ -43,23 +43,22 @@ def create_pitches():
 
 @main.route('/comment/new/', methods = ['GET','POST'])
 @login_required
-def create_comments():
+def create_comments(id):
     form = CommentForm()
 
 
     if form.validate_on_submit():
-        category = form.category.data
-        content = form.content.data 
+        
+        comment = form.comment.data
 
-        new_comment =Comment(description=content, category = category, user=current_user)
-        new_comment.save_comment()
+        new_comment =Comment(comment = comment , pitches_id = id, user=current_user)
+        db.session.add(new comment)
+        db.session.commit()
 
-        return redirect(url_for('main.index'))
+    comment = Comment.query.filter_by(pitches_id = id).all()
 
-    all_pitches = Pitch.query.all()
-       
-    title = 'Feel free to add a pitch'
-    return render_template('pitches.html',title = title, form=form)
+
+    return render_template('comments.html',title = title, form=form)
 
 
 
