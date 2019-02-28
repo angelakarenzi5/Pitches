@@ -14,10 +14,10 @@ def index():
     '''
 
     title = 'Home - Welcome to The best Pitches Review Website Online'
-    all_pitches = Pitch.get_pitches()
+    all_pitches = Pitch.query.all()
 
  
-    return render_template('index.html', title = title, pitches= all_pitches)
+    return render_template('index.html', title = title, all_pitches= all_pitches)
 
 
 @main.route('/pitch/new/', methods = ['GET','POST'])
@@ -28,17 +28,17 @@ def create_pitches():
 
     if form.validate_on_submit():
         category = form.category.data
-        pitch = form.content.data 
+        content = form.content.data 
 
         new_pitch = Pitch(content=pitch, category = category, user=current_user)
         new_pitch.save_pitch()
 
-        return redirect(url_for('main.home'))
+        return redirect(url_for('main.index'))
 
-    all_pitches = Pitch 
+    all_pitches = Pitch.query.all()
        
     title = 'Feel free to add a pitch'
-    return render_template('pitches.html',title = title, pitch_form=form)
+    return render_template('pitches.html',title = title, form=form)
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()

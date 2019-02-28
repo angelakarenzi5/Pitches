@@ -1,5 +1,4 @@
 {% macro displayPitches(pitches) %}
-{}
 {% for pitch in pitches %}
   {% if pitch.user.profile_pic-path %}
   <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 pitch-card">
@@ -14,7 +13,7 @@
     <button>UpVote</button>
     <button>DownVote</button>
     <a href="/new/comment/{{pitches.id}}">Add Comment</a>
-    {%endif%}
+    {%endof%}
 
     {%endfor%}
     {%endmacro%}
