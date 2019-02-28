@@ -1,8 +1,5 @@
 {% extends 'base.html'%}
-{% import 'macros.html' as macro%}
 {% import "bootstrap/wtf.html" as wtf%}
-
-
 {% block styles%}
     {{ super() }}
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
@@ -11,8 +8,15 @@
 {% block content%}
 <div class="container">
 
-    <div class="commentsform">
+    <div>
         {{wtf.quick_form(form)}}
+    </div>
+
+
+    <div class="well">
+        {%for pitch in comment%}
+        <p>{{pitch.comment}}</p>
+        { %endfor% }
     </div>
 </div>
 

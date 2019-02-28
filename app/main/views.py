@@ -48,7 +48,7 @@ def create_comments(id):
 
 
     if form.validate_on_submit():
-        
+
         comment = form.comment.data
 
         new_comment =Comment(comment = comment , pitches_id = id, user=current_user)
@@ -58,7 +58,7 @@ def create_comments(id):
     comment = Comment.query.filter_by(pitches_id = id).all()
 
 
-    return render_template('comments.html',title = title, form=form)
+    return render_template('comments.html', form=form)
 
 
 
