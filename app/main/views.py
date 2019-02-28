@@ -52,7 +52,7 @@ def create_comments(id):
         comment = form.comment.data
 
         new_comment =Comment(comment = comment , pitches_id = id, user=current_user)
-        db.session.add(new comment)
+        db.session.add(new_comment)
         db.session.commit()
 
     comment = Comment.query.filter_by(pitches_id = id).all()
