@@ -30,7 +30,7 @@ def create_pitches():
         category = form.category.data
         content = form.content.data 
 
-        new_pitch = Pitch(content=pitch, category = category, user=current_user)
+        new_pitch = Pitch(description=content, category = category, user=current_user)
         new_pitch.save_pitch()
 
         return redirect(url_for('main.index'))
@@ -39,6 +39,7 @@ def create_pitches():
        
     title = 'Feel free to add a pitch'
     return render_template('pitches.html',title = title, form=form)
+
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()

@@ -9,7 +9,8 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
-    
+    pitch = db.relationship('Pitch', backref = 'user', lazy='dynamic')
+    comment = db.relationship('Comment',backref = 'comment',lazy='dynamic')
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255)) 
@@ -41,7 +42,7 @@ class Pitch(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     description = db.Column(db.String(255))
     category = db.Column(db.String(255))
-    comment = db.relationship('Comment',backref = 'comment',lazy="dynamic")
+    comment = db.relationship('Comment',backref = 'pitch',lazy='dynamic')
 
 
     def save_pitch(self):
