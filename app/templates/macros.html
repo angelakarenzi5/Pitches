@@ -5,14 +5,14 @@
         <img src="{{ pitch.poster }}" alt="{{ pitch.title }} poster" class="img-responsive">
     <p>{{pitch.user.username}}</p>
 
-    <a href="/pitches/{{pitches.id}}">{{pitches.content}}</a>
+    <a href="/pitch/{{pitch.id}}">{{pitches.content}}</a>
     <button>Upvote</button>
     <button>DownVote</button>
     {%else%}
     <img src="static/photos/no_dp.png" alt="">
     <button>UpVote</button>
     <button>DownVote</button>
-    <a href="/new/comment/{{pitches.id}}">Add Comment</a>
+    <a href="/new/comment/{{pitch.id}}">Add Comment</a>
     {%endif%}
 
     {%endfor%}
