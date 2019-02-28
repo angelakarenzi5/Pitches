@@ -22,7 +22,7 @@ def index():
 
 @main.route('/pitch/new/', methods = ['GET','POST'])
 @login_required
-def home(id):
+def create_pitches():
     form = AddPitchForm()
 
 
@@ -38,7 +38,7 @@ def home(id):
     all_pitches = Pitch 
        
     title = 'Feel free to add a pitch'
-    return render_template('pitches.html',title = title, pitch_form=form, form=pitches)
+    return render_template('pitches.html',title = title, pitch_form=form)
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()

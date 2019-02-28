@@ -1,8 +1,8 @@
 {% macro displayPitches(pitches) %}
-
+{}
 {% for pitch in pitches %}
-{% if pitch.user.profile_pic-path %}
-    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 pitch-card">
+  {% if pitch.user.profile_pic-path %}
+  <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 pitch-card">
         <img src="{{ pitch.poster }}" alt="{{ pitch.title }} poster" class="img-responsive">
     <p>{{pitch.user.username}}</p>
 
@@ -10,26 +10,12 @@
     <button>Upvote</button>
     <button>DownVote</button>
     {%else%}
+    <img src="static/photos/no_dp.png" alt="">
+    <button>UpVote</button>
+    <button>DownVote</button>
+    <a href="/new/comment/{{pitches.id}}">Add Comment</a>
+    {%endif%}
 
-    <li class="text-center">
-        <a href="/movie/{{movie.id}}">
-        {{[pitches.title|truncate(10)}}</a>
-    </li>
-    </div>
-
-{% endfor %} -->
-
-{% endmacro %}
-
-
-
-
-Displaying reviews macro
-{% macro displayReviews(review_list) %}
-    {% for review in review_list %}
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
-        <h2> {{ review.title}} </h2>
-        <p> {{ review.review | truncate(30) }}</p>
-    </div>
-    {% endfor %}
-{% endmacro %}
+    {%endfor%}
+    {%endmacro%}
+   
