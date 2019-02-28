@@ -15,7 +15,7 @@ def index():
 
     title = 'Home - Welcome to The best Pitches Review Website Online'
     all_pitches = Pitch.query.all()
-
+    # comments = Comment.query.filter_by(pitch_id = id).all()
  
     return render_template('index.html', title = title, all_pitches= all_pitches)
 
@@ -41,24 +41,31 @@ def create_pitches():
     return render_template('pitches.html',title = title, form=form)
 
 
-@main.route('/comment/new/', methods = ['GET','POST'])
+@main.route('/comment/new/<int:id>', methods = ['GET','POST'])
 @login_required
 def create_comments(id):
     form = CommentForm()
-
+    pitch= Pitch.query.filter_by(id=id).first()
 
     if form.validate_on_submit():
 
         comment = form.comment.data
 
-        new_comment =Comment(comment = comment , pitches_id = id, user=current_user)
+        new_comment =Comment(content = comment , pitch= pitch, user=current_user)
         db.session.add(new_comment)
         db.session.commit()
 
-    comment = Comment.query.filter_by(pitches_id = id).all()
+    comments = Comment.query.filter_by(pitch_id = id).all()
 
 
-    return render_template('comments.html', form=form)
+    return render_template('comments.html', form=form ,comments=comments)
+
+@main.route('/pitch/<int:id>')
+def pitch(id):
+    pitch=Pitch.get_pitche(id)
+
+    return render_template('pitch.html',pitch=pitch)
+
 
 
 

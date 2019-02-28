@@ -5,18 +5,17 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
 
-{% block content%}
+{% block content %}
 <div class="container">
 
     <div>
         {{wtf.quick_form(form)}}
     </div>
 
-
     <div class="well">
-        {%for pitch in comment%}
-        <p>{{pitch.comment}}</p>
-        { %endfor% }
+        {% for pitch in comments %}
+        <p>{{pitch.content}}</p>
+        {%endfor %}
     </div>
 </div>
 
