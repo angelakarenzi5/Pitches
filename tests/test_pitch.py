@@ -1,6 +1,6 @@
 
 import unittest
-from app.models import Pitch
+from app.models import Pitch, User
 
 
 class PitchTest(unittest.TestCase):
@@ -18,3 +18,7 @@ class PitchTest(unittest.TestCase):
         self.assertTrue(isinstance(self.new_pitch,Pitch))
 
 
+    def test_save_Pitch(self):
+       
+        self.new_Pitch.save_Pitch() # saving the new Credentials
+        self.assertTrue(len(Pitch.query.all()>0)
