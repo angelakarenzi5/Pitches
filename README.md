@@ -16,7 +16,7 @@ Pitches is an application where you can have different categories like pickup li
 * In your terminal <br>
 
     $ source < name of virtual environment>/bin/activate<br>
-    $ git clone https://github.com/angelakarenzi5/News-Highlight.git<br>
+    $ git clone https://github.com/angelakarenzi5/Pitches.git<br>
     $ cd News-Highlight
 
 ### Running
@@ -45,7 +45,7 @@ Pitches is an application where you can have different categories like pickup li
 [Link to live website](https://newshighlight5.herokuapp.com/)
 ## Known Bugs
 
-There are no known bugs yet.
+The Upvote and Downvotes are not functioning
 
 ## Technologies used
 
