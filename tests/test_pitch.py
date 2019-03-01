@@ -22,3 +22,8 @@ class PitchTest(unittest.TestCase):
        
         self.new_Pitch.save_Pitch() # saving the new Credentials
         self.assertTrue(len(Pitch.query.all()>0)
+
+    def test_get_pitch_by_id(self):
+
+        self.new_Pitch.save_Pitch()
+        got_pithcz = Pitch.get_pitche

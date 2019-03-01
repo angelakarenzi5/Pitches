@@ -4,16 +4,20 @@
 {% block styles%}
     {{ super() }}
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
 {% endblock %}
     
 {% block content %}
+<body>
     <h1>WELCOME TO PITCHES WEBSITE</h1><br>
     <p>Click on button to create a pitch<a href="{{url_for('main.create_pitches')}}"><button>Add Pitch</button></a></p>
    
     {%for pitch in all_pitches %}</li>
     <p>{{pitch.description}}</p>
-    
+    <div class="comment">
     <a href="/comment/new/{{pitch.id}}"><button>Comments</button></a>
-   
+    </div>
+</body>
     {%endfor%}
     {% endblock %}
