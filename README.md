@@ -17,7 +17,7 @@ Pitches is an application where you can have different categories like pickup li
 
     $ source < name of virtual environment>/bin/activate<br>
     $ git clone https://github.com/angelakarenzi5/Pitches.git<br>
-    $ cd News-Highlight
+    $ cd Pitches
 
 ### Running
  * In your terminal<br>
@@ -27,22 +27,19 @@ Pitches is an application where you can have different categories like pickup li
 
 ### Test
 * To run tests
-  * In your terminal<br>
-  $ python3.6 source_test.py<br>
+* In your terminal<br>
+  $ python3.6 source_tepyst.<br>
    $ python3.6 article_.py
 
 
 ##BDD
 
-###SPECS
+* The program should allow the user to see different pitches posted by different users
+* The program should allow the user to create an account in order to be able to add a Pitch 
+* The program should allow the user to comment with an account
+* The program should allow the user to view different categories of pitches 
+* The program should send a welcoming message once the user sign's up 
 
-
-* The program should allow the user to see different sources of news
-* The program should allow the user to read articles from a specific source
-* The program should allow the user to click on aricle and read it from source website
-
-
-[Link to live website](https://newshighlight5.herokuapp.com/)
 ## Known Bugs
 
 The Upvote and Downvotes are not functioning
